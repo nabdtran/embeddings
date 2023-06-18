@@ -227,11 +227,11 @@ if __name__ == '__main__':
                 print('############################################')
 
                 # Do not update if using save.py
-                # collection.update(ids=[kb_id],documents=[article])
-                # print('############################################')
-                # print(article)
-                # print('############################################')
-                # save_file('db_logs/log_%s_update.txt' % time(), 'Updated document %s:\n%s' % (kb_id, article))
+                collection.update(ids=[kb_id],documents=[article])
+                print('############################################')
+                print(article)
+                print('############################################')
+                save_file('db_logs/log_%s_update.txt' % time(), 'Updated document %s:\n%s' % (kb_id, article))
                 # TODO - save more info in DB logs, probably as YAML file (original article, new info, final article)
                 
                 #Split KB if too large
