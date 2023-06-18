@@ -237,11 +237,14 @@ if __name__ == '__main__':
                 #Split KB if too large
                 kb_len = len(article.split(' '))
                 print(kb_len)
-                if kb_len > 1000:
+                if kb_len > 1:
                     kb_convo = list()
                     kb_convo.append({'role': 'system', 'content': open_file('system_split_kb.txt')})
                     kb_convo.append({'role': 'user', 'content': article})
                     articles = chatbot(kb_convo, model=model).split('ARTICLE 2:')
+                    print('kbsplit############################################')
+                    print(article)
+                    print('kbsplit############################################')
                     a1 = articles[0].replace('ARTICLE 1:', '').strip()
                     a2 = articles[1].strip()
                     collection.update(ids=[kb_id],documents=[a1])
